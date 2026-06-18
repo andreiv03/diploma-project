@@ -1,0 +1,91 @@
+% ============================================================
+%  FRONT MATTER TEMPLATE
+%  Institutional boilerplate and the macros that lay out the
+%  Romanian/English cover pages and the abstract page.
+%
+%  Nothing in this file should normally need to change between
+%  theses — student-specific values (name, title, advisor,
+%  abstracts) live in metadata.tex and are referenced below.
+% ============================================================
+
+\newcommand{\HeaderLineSpace}{1ex}
+
+% --- Institution header block (Romanian / English) ---
+\newcommand{\UniTextRO}{%
+    UNIVERSITATEA NAȚIONALĂ DE ȘTIINȚĂ ȘI TEHNOLOGIE POLITEHNICA DIN BUCUREȘTI \\[\HeaderLineSpace]
+    FACULTATEA DE AUTOMATICĂ ȘI CALCULATOARE \\[\HeaderLineSpace]
+    DEPARTAMENTUL DE CALCULATOARE \\}
+
+\newcommand{\UniTextEN}{%
+    NATIONAL UNIVERSITY OF SCIENCE AND TECHNOLOGY POLITEHNICA OF BUCHAREST \\[\HeaderLineSpace]
+    FACULTY OF AUTOMATIC CONTROL AND COMPUTERS \\[\HeaderLineSpace]
+    COMPUTER SCIENCE AND ENGINEERING DEPARTMENT \\}
+
+% --- Fixed labels (Romanian / English) ---
+\newcommand{\DiplomaRO}{PROIECT DE DIPLOMĂ}
+\newcommand{\DiplomaEN}{DIPLOMA PROJECT}
+
+\newcommand{\AdvisorRO}{Coordonator științific:}
+\newcommand{\AdvisorEN}{Thesis advisor:}
+
+\newcommand{\BucRO}{BUCUREȘTI}
+\newcommand{\BucEN}{BUCHAREST}
+
+% --- Generic cover page ---
+% \frontPage{header}{diploma label}{title}{advisor label}{city}{month}
+%   #1  institution, faculty, and department block (\UniTextRO or \UniTextEN)
+%   #2  diploma label (\DiplomaRO or \DiplomaEN)
+%   #3  project title (\ProjectTitleRO or \ProjectTitleEN)
+%   #4  advisor field label (\AdvisorRO or \AdvisorEN)
+%   #5  city (\BucRO or \BucEN)
+%   #6  month, printed before \Year (\MonthRO or \MonthEN)
+% Student name (\Name), advisor name (\Advisor) and \Year are read directly
+% from metadata.tex and are shared by both language variants.
+\newcommand{\frontPage}[6]{%
+    \begin{titlepage}
+        \begin{center}
+            {\Large #1}
+            \vspace{40pt}
+            
+            \begin{tabular}{m{6cm}m{4cm}}
+                \includegraphics[scale=0.8]{pics/upb-logo.jpg} &
+                \includegraphics[scale=0.115]{pics/cs-logo.jpg}
+            \end{tabular}
+            
+            \vspace{105pt}
+            {\Huge #2}\\
+            \vspace{20pt}
+            {\Large #3}\\ 
+            \vspace{50pt}
+            {\LARGE \Name}\\
+        \end{center}
+        
+        \vfill
+        \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}p{6cm}r}
+            & {\large\textbf{#4}}\\[10pt]
+            & {\large \Advisor}
+        \end{tabular*}
+        
+        \vspace{20pt}
+        \begin{center}
+            {\large\textbf{#5}}\\
+            {\normalsize #6 \Year}
+        \end{center}
+    \end{titlepage}%
+}
+
+\newcommand{\frontPageRO}{%
+    \frontPage{\UniTextRO}{\DiplomaRO}{\ProjectTitleRO}{\AdvisorRO}{\BucRO}{\MonthRO}}
+
+\newcommand{\frontPageEN}{%
+    \frontPage{\UniTextEN}{\DiplomaEN}{\ProjectTitleEN}{\AdvisorEN}{\BucEN}{\MonthEN}}
+
+% --- Abstract page (Romanian "SINOPSIS" + English "ABSTRACT") ---
+\newcommand{\AbstractPage}{%
+    \begin{titlepage}
+        \textbf{\large SINOPSIS}\par
+        \AbstractRO\par\vfill
+        \textbf{\large ABSTRACT}\par
+        \AbstractEN\vfill
+    \end{titlepage}%
+}

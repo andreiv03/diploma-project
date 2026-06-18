@@ -1,0 +1,59 @@
+\chapter{Introducere}
+
+\section{Context}
+Limba engleză s-a impus, în ultimele decenii, drept principalul mijloc de comunicare internațională, fiind folosită în mediul academic, în sectorul comercial și în orice situație în care persoane din țări diferite trebuie să se înțeleagă. EF Education First publică anual un raport dedicat evaluării nivelului de cunoaștere a limbii engleze la nivel global, acoperind 123 de țări și regiuni pe baza datelor colectate de la 2,2 milioane de participanți, arătând că nivelul de engleză rămâne direct legat de indicatori economici și educaționali importanți, persoanele din țările cu un nivel lingvistic mai ridicat beneficiind, în medie, de oportunități mai bune atât pe piața muncii, cât și în educație \cite{efepi2025}.
+
+Odată cu răspândirea internetului și a dispozitivelor mobile, o mare parte din activitatea de formare s-a mutat în mediul online, utilizatorii preferând soluții pe care le pot accesa oricând, fără a depinde de un orar fix sau de deplasări la cursuri. Piața platformelor online de învățare a limbilor străine a ajuns la valoarea de 22,86 miliarde de dolari în 2025 și este estimată să crească până la 53,18 miliarde de dolari până în 2030, la un ritm anual de 18\% \cite{ollgmr2026}, ceea ce arată că trecerea spre online nu este un fenomen trecător, ci o schimbare reală în modul în care oamenii aleg să se formeze.
+
+Nevoia de resurse pentru studiul limbii engleze vine din mai multe direcții, unii utilizatori pregătindu-se pentru examene de certificare, alții având nevoie de engleză la locul de muncă sau dorind să comunice ușor în situații internaționale, fiecare cu nevoi și ritm de învățare diferite.
+
+Pe măsură ce piața a crescut, s-au conturat două categorii principale de platforme, unele concentrându-se pe materiale de studiu structurate și studiu individual, iar altele pe conectarea studenților cu profesori pentru sesiuni video, fiecare acoperind o nevoie reală, dar fără ca ambele să fie disponibile, de obicei, în același loc.
+
+\section{Problemă}
+Deși numărul platformelor educaționale online a crescut mult în ultimii ani, soluțiile disponibile acoperă, de obicei, fie materialele de studiu, fie meditațiile online cu un profesor, nu pe ambele în același sistem. Platformele cu lecții structurate pun la dispoziție cursuri, exerciții și un plan de studiu bine definit, dar nu permit interacțiunea directă cu un profesor, lăsând studentul să lucreze singur fără a primi îndrumare directă. Platformele de meditații online conectează studenții cu profesori pentru sesiuni individuale, dar nu au un plan de studiu propriu și nici un sistem prin care să poată urmări progresul studentului de la o sesiune la alta, obligând utilizatorul care le dorește pe ambele să recurgă la două servicii separate, plătind două abonamente și gestionând două interfețe fără nicio legătură între ele.
+
+Fragmentarea aceasta are și alte efecte nedorite. Progresul nu poate fi urmărit într-un mod unitar, iar profesorul nu are cum să știe ce a studiat studentul până în acel moment, neputând adapta sesiunea în funcție de nivelul real sau de lacunele pe care le are.
+
+Pe lângă problema fragmentării, există și una legată de calitate. Pe platformele de meditații, înregistrarea ca profesor nu implică de obicei un proces real de verificare a competențelor, studentul bazându-se pe câteva recenzii și pe un material de prezentare pentru a decide cu cine lucrează. Materialele publicate de utilizatori pe platformele unde oricine poate adăuga conținut variază la rândul lor mult ca nivel și corectitudine, fără niciun filtru care să garanteze că lecțiile sunt bine structurate și potrivite nivelului promis.
+
+Lipsa unei soluții care să reunească în același loc materialele de studiu structurate, sesiunile video cu profesori verificați și urmărirea progresului rămâne, astfel, o problemă reală pe piața actuală.
+
+\section{Obiective}
+Proiectul și-a propus să construiască o platformă web care să reunească, într-un singur sistem, materialele de studiu, urmărirea progresului și sesiunile video cu profesori, eliminând nevoia utilizatorului de a combina mai multe servicii separate pentru a-și acoperi nevoile de bază în studiul limbii engleze.
+
+Din punct de vedere al conținutului, platforma trebuie să ofere cursuri organizate pe niveluri de dificultate, fiecare cuprinzând lecții cu exerciții interactive de mai multe tipuri și teste cronometrate, testele cu limită de timp fiind incluse pentru a oferi și un mecanism de evaluare în condiții mai controlate față de exercițiile obișnuite la care un student poate reveni oricând fără nicio limită impusă.
+
+Sesiunile cu profesori reprezintă un alt obiectiv important, platforma trebuind să permită rezervarea și desfășurarea de sesiuni video, atât individuale, cât și de grup, direct în aplicație, accesul la acestea funcționând printr-un sistem de credite obținute prin abonament, oferind fiecărui student posibilitatea de a decide câte sesiuni dorește să rezerve și la ce interval.
+
+Calitatea constituie un obiectiv separat și, totodată, una dintre deciziile mai importante ale proiectului, profesorii neavând voie să activeze pe platformă imediat după înregistrare, ci trebuind să treacă printr-un proces de aprobare, iar cursurile create de aceștia urmând să fie verificate înainte de a apărea în catalog.
+
+Urmărirea progresului reprezintă un alt obiectiv, platforma trebuind să înregistreze automat evoluția fiecărui student la nivel de lecție și de quiz, oferindu-i o imagine clară a parcursului său fără a fi nevoit să țină singur evidența. Gestionarea celor trei tipuri de utilizatori (student, profesor și administrator), fiecare cu funcționalități și permisiuni diferite, împreună cu integrările externe necesare pentru plați și video, completează lista obiectivelor tehnice ale proiectului.
+
+\section{Soluția propusă}
+Solutia propusă este o aplicație web destinată studiului limbii engleze, organizată în jurul a trei roluri principale cu funcționalități și permisiuni diferite: student, profesor și administrator, fiecare interacționând cu același sistem, dar având acces la funcționalități diferite în funcție de rolul pe care îl deține.
+
+Studentul creează un cont și trece printr-un proces de verificare a adresei de email, existând și un mecanism dedicat pentru obținerea acordului parental în cazul utilizatorilor minori. Odată activat contul, studentul poate accesa catalogul de cursuri, poate parcurge lecțiile și poate rezolva exerciții interactive și teste cronometrate, progresul fiindu-i urmărit automat la nivelul fiecărei lecții și al fiecărui quiz. Accesul la sesiunile cu profesori depinde de existența unui abonament activ, prin care studentul acumulează credite pe care le folosește ulterior pentru rezervarea de sesiuni individuale sau de grup, în funcție de disponibilitatea profesorilor.
+
+Profesorul urmează un flux diferit de la bun început, depunând după înregistrare o cerere de activare pe care administratorul o poate aproba sau respinge, putând să creeze cursuri și să își stabilească disponibilitatea pentru sesiuni abia după aprobare. Cursurile nu apar imediat în catalog, ci trec printr-un proces de verificare gestionat de administrator, asigurând faptul că studentul nu ajunge să parcurgă materiale care nu au fost revizuite în prealabil.
+
+Administratorul are acces la toate entitățile din sistem, putând gestiona utilizatorii, aproba sau respinge profesori și cursuri, și urmări activitatea din platformă. Sesiunile video se desfășoară printr-o integrare cu un serviciu extern de videoconferință, camera de sesiune creându-se automat și putând fi accesată direct din interfața platformei, iar sistemul de plăți este gestionat tot printr-o integrare externă, acoperind abonamentele recurente, un portal prin care studentul își poate gestiona abonamentul și un istoric al plăților efectuate.
+
+\section{Rezultatele obținute}
+La finalul implementării, platforma acoperă ciclul întreg de învățare, pornind de la crearea unui cont și parcurgerea primei lecții, ajungând pănă la rezervarea și desfășurarea unei sesiuni video cu un profesor.
+
+Modulele principale sunt implementate și funcționale: autentificarea cu verificare prin email și acordul parental pentru utilizatorii minori, catalogul de cursuri cu lecții, exerciții interactive și teste cronometrate, sistemul de urmărire a progresului, modulul de rezervare și desfășurare a sesiunilor, sistemul de abonamente cu credite și notificările în aplicație. Fluxurile de aprobare pentru profesori și cursuri funcționează complet, de la trimiterea cererii de către profesor până la notificarea automată a acestuia în urma deciziei administratorului, fără a fi necesară nicio intervenție manuală suplimentară.
+
+Un aspect care merită menționat este că finalizarea unei lecții este direct legată de rezolvarea corectă a exercițiilor asociate, studentul neputând marca o lecție ca fiind terminată fără a demonstra că a înțeles conținutul, ceea ce diferențiază platforma de soluțiile care urmăresc progresul doar pe baza timpului petrecut sau a materialelor deschise. Sesiunile pot fi rezervate și desfășurate direct din platformă, studentul având acces oricând la o imagine de ansamblu a progresului său pentru fiecare curs în parte.
+
+\section{Structura lucrării}
+Capitolul 2 prezintă motivația proiectului, publicul căruia i se adresează platforma și scenariile de utilizare, împreună cu cerințele funcționale și nefuncționale care au ghidat implementarea.
+
+Capitolul 3 analizează soluțiile existente pe piață, identificând limitele acestora și argumentând alegerea tehnologiilor folosite față de alternativele disponibile.
+
+Capitolul 4 descrie arhitectura generală a sistemului, modelul bazei de date, structura componentelor client și server și modul de gestionare a integrărilor externe.
+
+Capitolul 5 intră în detaliile tehnice ale implementării fiecărui modul funcțional, prezentând deciziile luate, dificultățile întâmpinate și soluțiile adoptate.
+
+Capitolul 6 acoperă testarea și evaluarea platformei, cu rezultate concrete și o comparație cu soluțiile existente pe baza unor metrici clare.
+
+Capitolul 7 sumarizează contribuțiile proiectului, reflectă asupra rezultatelor obținute și propune direcții de dezvoltare ulterioară.

@@ -1,0 +1,45 @@
+\chapter{Evaluare} 
+
+\section{Metodologia de testare}
+Testarea platformei s-a desfășurat în două etape, acoperind componenta server și componenta client, fiecare cu abordări diferite în funcție de ce trebuia verificat.
+
+Pentru server s-a folosit Swagger UI, o interfață web generată automat de Spring Boot care afișează toate endpoint-urile disponibile și permite trimiterea de cereri direct din browser, funcționând practic ca o aplicație separată care rulează alături de server și permite testarea fiecărui endpoint fără a fi nevoie de un tool extern. Au fost testate atât scenariile normale de utilizare, cât și cazurile limită, cum ar fi rezervarea unei sesiuni fără credite suficiente, trimiterea unui curs fără nicio lecție adăugată sau înregistrarea cu o adresă de email deja existentă, fiecare verificând că serverul răspunde corect și returnează erorile potrivite.
+
+Componenta client a fost testată manual în browser, parcurgând toate fluxurile principale pentru fiecare rol în parte, testarea realizându-se simultan cu două conturi active, un student și un profesor, pentru a putea verifica și interacțiunile dintre ele. Pentru fluxurile care implică administratorul a fost folosit și un al treilea cont.
+
+\section{Testarea funcțională}
+Fluxul de înregistrare și autentificare a funcționat conform așteptărilor în toate scenariile testate, contul unui utilizator minor neactivându-se fără consimțământul parental, emailul de verificare ajungând corect la destinație și linkul de activare funcționând cum trebuie. Autentificarea cu date greșite a returnat erori fără a dezvălui dacă emailul există sau nu în sistem, ceea ce este important din punct de vedere al securității. Accesul fără token la rutele protejate a returnat 401 în toate cazurile testate.
+
+Fluxul de creare și aprobare a cursurilor a funcționat corect, profesorul neputând publica fără aprobare și administratorul primind notificare automată la trimiterea spre publicare, cursul devenind vizibil în catalog imediat după aprobare. Un lucru observat în testare este că dacă profesorul trimite un curs spre publicare și încearcă sa îl editeze, interfața nu mai permite asta, ceea ce reprezintă comportamentul corect, dar nu este imediat evident pentru un utilizator nou (\Cref{fig:catalog}).
+
+Exercițiile și quiz-urile au reprezentat probabil secțiunea cea mai atent testată, logica de marcare a progresului depinzând direct de ele. Au fost testate toate tipurile de exerciții, verificând că răspusurile corecte sunt evaluate corect și că o lecție nu poate fi marcată ca finalizată dacă există exerciții nerezolvate. Quiz-urile cu limită de timp au confirmat că serverul respinge răspunsurile trimise după expirarea timpului indiferent de ce face utilizatorul, manipularea timpului în browser neavând niciun efect. Procentul de completare al cursului s-a actualizat corect după fiecare lecție finalizată, mai puțin într-un caz izolat în care cache-ul din browser nu s-a invalidat imediat, o reîncărcare a paginii rezolvând problema (\Cref{fig:lesson-exercises,fig:quiz}).
+
+Sistemul de rezervare a funcționat bine în general, sloturile deja rezervate neapărând ca disponibile pentru alți studenți, deducerea creditelor realizându-se corect și istoricul tranzacțiilor reflectând fiecare operație. A fost testat și scenariul în care un student încearcă să rezerve un slot fără credite suficiente, serverul returnând o eroare clară (\Cref{fig:session-booking}).
+
+Panoul de administrare a funcționat fără probleme în toate cazurile testate, toate acțiunile generând notificările corespunzătoare (\Cref{fig:admin-panel}).
+
+\section{Comparație cu soluțiile existente}
+Față de platformele analizate în capitolul 3, platforma propusă adaugă ce lipsea din fiecare: conținut structurat în platformele de meditații și sesiuni cu profesori în platformele de conținut. \Cref{tab:extended-platform-comparison} prezintă comparația extinsă incluzând și platforma propusă.
+
+\begin{table}[htbp]
+    \centering
+    \resizebox{\textwidth}{!}{%
+        \begin{tabular}{l c c c c c}
+            \toprule
+            \textbf{Criteriu} & \textbf{Duolingo} & \textbf{Coursera} & \textbf{iTalki} & \textbf{Preply} & \textbf{Platforma propusă}\\
+            \midrule
+            Materiale de studiu structurate & Da & Da & Nu & Parțial & Da\\
+            Sesiuni video cu profesori & Nu & Nu & Da & Da & Da \\
+            Urmărire progres & Da & Da & Nu & Parțial & Da \\
+            Verificare profesori & Nu & Nu & Parțial & Da & Da \\
+            Flux de aprobare conținut & Nu & Da & Nu & Nu & Da \\
+            Integrare conținut și sesiuni & Nu & Nu & Nu & Parțial & Da \\
+            Model de plată & Gratuit/Premium & Abonament/Per curs & Per sesiune & Abonament & Abonament + credite\\
+            \bottomrule
+        \end{tabular}%
+    }
+    \caption{Compararea platformei propuse cu soluțiile existente}
+    \label{tab:extended-platform-comparison}
+\end{table}
+
+Duolingo si Coursera acoperă bine conținutul didactic, dar nu oferă interacțiune directă cu un profesor, în timp ce iTalki și Preply oferă sesiuni individuale fără un curriculum propriu. Platforma propusă încearcă să acopere ambele nevoi, adăugând și un mecanism de verificare a calității prin fluxul de aprobare a profesorilor și cursurilor, care lipsește în mare parte de pe platformele de tutoriat existente. Anumite aspecte, cum ar fi numărul de profesori disponibili sau nivelul de rafinament al interfeței, sunt evident incomparabile cu platformele comerciale mature, dar din punct de vedere al integrării funcționalităților platforma acoperă un gol real pe care acestea nu îl rezolvă.

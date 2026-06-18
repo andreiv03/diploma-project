@@ -1,0 +1,85 @@
+% ============================================================
+%  PREAMBLE
+%  All package loading and document-wide formatting lives here.
+%  Thesis content (title, author, abstracts) is in metadata.tex.
+%  Cover-page / abstract-page layouts are in titlepages.tex.
+% ============================================================
+
+% --- Encoding & language ---
+\usepackage[romanian]{babel} % Romanian hyphenation, captions, dates
+\renewcommand\familydefault{\sfdefault} % sans-serif as the body font
+\addto\captionsromanian{
+    \renewcommand{\appendixname}{Anexa}
+    \renewcommand{\chaptername}{Capitolul}
+    \renewcommand{\contentsname}{Cuprins}
+    \renewcommand{\figurename}{Figura}
+    \renewcommand{\tablename}{Tabelul}
+}
+
+% --- Page geometry ---
+\usepackage[margin=2.54cm]{geometry}
+
+% --- Graphics ---
+\usepackage{graphicx}
+\usepackage{xcolor}
+
+% --- Chapter / section heading style ---
+\usepackage{titlesec}
+\titleformat{\chapter}{\large\bfseries\MakeUppercase}{\thechapter}{2ex}{}[\vspace*{-1.5cm}]
+\titleformat*{\section}{\large\bfseries}
+\titleformat*{\subsection}{\large\bfseries}
+\titleformat*{\subsubsection}{\large\bfseries}
+
+% --- Appendix support ---
+\usepackage[titletoc,title]{appendix}
+
+% --- Continuous numbering of figures/tables/equations across chapters ---
+\counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}
+\counterwithout{equation}{chapter}
+
+% --- Tables, arrays, lists ---
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage[inline]{enumitem}
+\setlist{noitemsep}
+
+% --- Misc text utilities ---
+\usepackage{verbatim} % comment environment for blocking out source
+
+% --- Side-by-side sub-figures/sub-tables ---
+\usepackage{subcaption}
+
+% --- Headers & footers ---
+\usepackage{fancyhdr}
+\pagestyle{empty} % front matter: no header/footer decoration
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyhf{} % clear all six header/footer fields
+\cfoot{\thepage}
+
+% --- Hyperlinks & cross-references (must be loaded near the end) ---
+\usepackage{cite} % compressed sorted IEEE citation numbers [1]–[3]
+\usepackage[hidelinks]{hyperref}
+\usepackage{xurl} % allow URL line breaks at more characters
+\usepackage[nameinlink]{cleveref}
+\crefname{figure}{figura}{figurile}
+\Crefname{figure}{Figura}{Figurile}
+\crefname{table}{tabelul}{tabelurile}
+\Crefname{table}{Tabelul}{Tabelurile}
+\newcommand{\crefpairconjunction}{ și }
+\newcommand{\crefmiddleconjunction}{, }
+\newcommand{\creflastconjunction}{ și }
+\newcommand{\crefrangeconjunction}{--}
+
+% --- Global spacing ---
+\linespread{1.15}
+\setlength\parindent{0pt}
+\setlength\parskip{.28cm}
+
+% --- Custom commands ---
+\newcommand{\code}[1]{%
+    {\setlength{\fboxsep}{3pt}%
+     \setlength{\fboxrule}{0.5pt}%
+     \fcolorbox{gray!50}{gray!10}{\texttt{\textcolor{violet}{#1}}}}%
+}
