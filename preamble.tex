@@ -2,11 +2,11 @@
 %  PREAMBLE
 %  All package loading and document-wide formatting lives here.
 %  Thesis content (title, author, abstracts) is in metadata.tex.
-%  Cover-page / abstract-page layouts are in titlepages.tex.
+%  Cover-page / abstract-page layouts are in front-matter.tex.
 % ============================================================
 
 % --- Encoding & language ---
-\usepackage[romanian]{babel} % Romanian hyphenation, captions, dates
+\usepackage[romanian]{babel}
 \renewcommand\familydefault{\sfdefault} % sans-serif as the body font
 \addto\captionsromanian{
     \renewcommand{\appendixname}{Anexa}
@@ -21,11 +21,11 @@
 
 % --- Graphics ---
 \usepackage{graphicx}
-\usepackage{xcolor}
 
 % --- Chapter / section heading style ---
 \usepackage{titlesec}
-\titleformat{\chapter}{\large\bfseries\MakeUppercase}{\thechapter}{2ex}{}[\vspace*{-1.5cm}]
+\titleformat{\chapter}{\large\bfseries\MakeUppercase}{\thechapter}{2ex}{}
+\titlespacing*{\chapter}{0pt}{0pt}{1ex}
 \titleformat*{\section}{\large\bfseries}
 \titleformat*{\subsection}{\large\bfseries}
 \titleformat*{\subsubsection}{\large\bfseries}
@@ -44,11 +44,11 @@
 \usepackage[inline]{enumitem}
 \setlist{noitemsep}
 
+% --- Code listings ---
+\usepackage{listings}
+
 % --- Misc text utilities ---
 \usepackage{verbatim} % comment environment for blocking out source
-
-% --- Side-by-side sub-figures/sub-tables ---
-\usepackage{subcaption}
 
 % --- Headers & footers ---
 \usepackage{fancyhdr}
@@ -58,15 +58,23 @@
 \fancyhf{} % clear all six header/footer fields
 \cfoot{\thepage}
 
-% --- Hyperlinks & cross-references (must be loaded near the end) ---
-\usepackage{cite} % compressed sorted IEEE citation numbers [1]–[3]
+% --- Hyperlinks & cross-references ---
+% Load order is strict: cite → hyperref → xurl → microtype → subcaption → cleveref
+\usepackage{cite}
 \usepackage[hidelinks]{hyperref}
-\usepackage{xurl} % allow URL line breaks at more characters
+\usepackage{xurl}
+\usepackage{subcaption}
 \usepackage[nameinlink]{cleveref}
+
+\crefname{equation}{ecuația}{ecuațiile}
+\Crefname{equation}{Ecuația}{Ecuațiile}
 \crefname{figure}{figura}{figurile}
 \Crefname{figure}{Figura}{Figurile}
+\crefname{section}{secțiunea}{secțiunile}
+\Crefname{section}{Secțiunea}{Secțiunile}
 \crefname{table}{tabelul}{tabelurile}
 \Crefname{table}{Tabelul}{Tabelurile}
+
 \newcommand{\crefpairconjunction}{ și }
 \newcommand{\crefmiddleconjunction}{, }
 \newcommand{\creflastconjunction}{ și }
@@ -74,12 +82,5 @@
 
 % --- Global spacing ---
 \linespread{1.15}
-\setlength\parindent{0pt}
-\setlength\parskip{.28cm}
-
-% --- Custom commands ---
-\newcommand{\code}[1]{%
-    {\setlength{\fboxsep}{3pt}%
-     \setlength{\fboxrule}{0.5pt}%
-     \fcolorbox{gray!50}{gray!10}{\texttt{\textcolor{violet}{#1}}}}%
-}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{.28cm}
